@@ -26,4 +26,4 @@ def test_my_test_info():
     print(' '.join(cmd))
     output = check_output(cmd)
     pprint(output)
-    assert False
+    #assert False

@@ -25,5 +25,4 @@ async def test_my_test_info():
     result = await run_module(load_inventory('inventory.yml'), ['modules'], 'my_test_info', module_args=dict(name='foo'))
     assert result is not None
     assert 'localhost' in result
-    pprint(result)
-    assert False
+    assert 'original_message' in result['localhost']
