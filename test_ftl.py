@@ -26,3 +26,10 @@ async def test_my_test_info():
     assert result is not None
     assert 'localhost' in result
     assert 'original_message' in result['localhost']
+
+@pytest.mark.asyncio
+async def test_new_style_module():
+    result = await run_module(load_inventory('inventory.yml'), ['modules'], 'new_style_module', module_args=dict(name='foo'))
+    assert result is not None
+    assert 'localhost' in result
+    assert 'original_message' in result['localhost']

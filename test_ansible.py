@@ -27,3 +27,10 @@ def test_my_test_info():
     output = check_output(cmd)
     pprint(output)
     #assert False
+
+
+def test_new_style_module():
+    cmd = ['ansible', '-M', 'modules', '-m', 'new_style_module', '-i', 'inventory.yml', '-a', 'name=foo', 'all']
+    print(' '.join(cmd))
+    output = check_output(cmd)
+    pprint(output)
