@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# This is an old style module
+# This is a WANT_JSON module
 
 import os
 import sys

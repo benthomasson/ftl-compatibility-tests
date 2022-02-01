@@ -7,9 +7,28 @@ from pprint import pprint
 
 @pytest.mark.asyncio
 async def test_argtest():
-    result = await run_module(load_inventory('inventory.yml'), ['modules'], 'argtest')
+    result = await run_module(load_inventory('inventory.yml'), ['modules'], 'argtest', module_args=dict(somekey='somevalue'))
+    pprint(result)
     assert result is not None
     assert 'localhost' in result
+    assert result['localhost']['args']
+    assert result['localhost']['more_args'] == 'somekey=somevalue'
+    assert result['localhost']['files']
+    assert result['localhost']['executable']
+    assert result['localhost']['env']
+
+
+@pytest.mark.asyncio
+async def test_argtestjson():
+    result = await run_module(load_inventory('inventory.yml'), ['modules'], 'argtestjson', module_args=dict(somekey='somevalue'))
+    pprint(result)
+    assert result is not None
+    assert 'localhost' in result
+    assert result['localhost']['args']
+    assert result['localhost']['more_args'] == '{"somekey": "somevalue"}'
+    assert result['localhost']['files']
+    assert result['localhost']['executable']
+    assert result['localhost']['env']
 
 
 @pytest.mark.asyncio
@@ -26,6 +45,7 @@ async def test_my_test_info():
     assert result is not None
     assert 'localhost' in result
     assert 'original_message' in result['localhost']
+
 
 @pytest.mark.asyncio
 async def test_new_style_module():

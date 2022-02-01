@@ -13,6 +13,14 @@ def test_argtest():
     #assert False
 
 
+def test_argtestjson():
+    cmd = ['ansible', '-M', 'modules', '-m', 'argtestjson', '-i', 'inventory.yml', 'all']
+    print(' '.join(cmd))
+    output = check_output(cmd)
+    pprint(output)
+    #assert False
+
+
 def test_timetest():
     cmd = ['ansible', '-M', 'modules', '-m', 'timetest', '-i', 'inventory.yml', 'all']
     print(' '.join(cmd))
