@@ -42,3 +42,10 @@ def test_new_style_module():
     print(' '.join(cmd))
     output = check_output(cmd)
     pprint(output)
+
+
+def test_binary():
+    cmd = ['ansible', '-M', 'modules', '-m', 'helloworld', '-i', 'inventory.yml', '-a', 'name=foo', 'all']
+    print(' '.join(cmd))
+    output = check_output(cmd)
+    pprint(output)
