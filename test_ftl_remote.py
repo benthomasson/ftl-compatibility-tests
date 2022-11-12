@@ -60,4 +60,5 @@ async def test_binary():
     result = await run_module(load_inventory('inventory2.yml'), ['modules'], 'helloworld', module_args=dict(name='foo'))
     assert result is not None
     assert 'localhost' in result
+    print(result['localhost'])
     assert 'msg' in result['localhost']
