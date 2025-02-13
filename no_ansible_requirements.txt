@@ -1,1 +1,4 @@
 ftl-module-utils
+pytest
+pytest-asyncio
+faster-than-light
